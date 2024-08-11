@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "my_app/challenge.css" %}">
+  <link rel="stylesheet" href="{% static "my_app/includes/header.css" %}">
+{% endblock %}
+
+{% block page_title %}
+  {{ initial_name|title }} 
+{% endblock %}
+  
+{% block content %}
+  {% include "my_app/includes/header.html" %}
+  
+  <h1>{{ initial_name|title }} </h1>
+  {% if text is not None %}
+    <h2>{{ text }}</h2>
+  {% else %}
+    <p class="fallback">There is no challenge for this day yet!</p>
+  {% endif %}
+{% endblock %}
